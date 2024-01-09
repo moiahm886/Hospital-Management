@@ -1,0 +1,48 @@
+﻿@model Hospital_Management.Models.Receptionist
+<title>Nurse Information</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .user-info-container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .user-info-label {
+        font-weight: bold;
+    }
+
+    .user-info-item {
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+    <div class="user-info-container mt-4">
+        <h1 class="text-center mb-4">User Information</h1>
+        <div class="user-info-item">
+            <span class="user-info-label">Doctor ID:</span> @Model.ReceptionistId
+        </div>
+        <div class="user-info-item">
+            <span class="user-info-label">User ID:</span> @Model.UserId
+        </div>
+        <div class="user-info-item">
+            <span class="user-info-label">Name:</span> @Model.Name
+        </div>
+        <div class="user-info-item">
+            <span class="user-info-label">Date of Birth:</span> @Model.DateOfBirth
+        </div>
+        <div class="user-info-item">
+            <span class="user-info-label">Contact No:</span> @Model.ContactNumber
+        </div>
+        <div class="user-info-item">
+            <span class="user-info-label">Email:</span> @Model.Email
+        </div>
+    </div>
+</body>
+

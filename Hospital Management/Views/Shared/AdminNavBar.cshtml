@@ -1,0 +1,25 @@
+﻿
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-controller="Admin" asp-action="AddUser">Manage User</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-controller="Admin" asp-action="AddDoctor">Manage Doctor</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-controller="Admin" asp-action="AddNurse">Manage Nurse</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-controller="Admin" asp-action="AddReceptionist">Manage Receptionist</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-controller="Admin" asp-action="AddPatient">Manage Patient</a>
+</li>
+<li class="nav-item">
+    <a href="@Url.Action("Logout", "Admin")" class="nav-link text-dark" onclick="return confirmLogout();">Logout</a>
+</li>
+<script>
+    function confirmLogout() {
+        return confirm("Are you sure you want to log out?");
+    }
+</script>
+

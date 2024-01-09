@@ -1,0 +1,49 @@
+﻿@{
+    var loginResult = ViewData["LoginResult"] as string;
+}
+<h1 class="mb-5 text-center">Login Page</h1>
+<div class="ml-4">
+    <form asp-controller="User" asp-action="ManageLogin" method="post">
+        <div class="mb-3 row">
+            <label for="UserName" class="col-sm-2 col-form-label">UserName</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control custom-input" id="UserName" name="Username" placeholder="Enter you username" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-5">
+                <input type="password" class="form-control custom-input" id="inputPassword" name="Password" placeholder="Enter your password" required>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+        @if (!string.IsNullOrEmpty(loginResult))
+        {
+            <p class="strong-text text-danger">@loginResult</p>
+        }
+    </form>
+</div>
+<style>
+    .custom-input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px rgba(0, 0, 255, 0.2);
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+       .custom-input:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+    .strong-text {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+</style>

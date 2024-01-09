@@ -1,0 +1,92 @@
+﻿@{
+    var userid = Convert.ToInt64(ViewData["UserID"]);
+}
+<h1 class="text-center mb-5">Add User</h1>
+<div class="ml-4">
+    <form asp-controller="Admin" asp-action="UserAdded" method="post">
+        <div class="form-group row mb-3">
+            <label for="Username" class="col-sm-2 col-form-label">Username:</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control custom-input" id="Username" name="Username" required>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="Password" class="col-sm-2 col-form-label">Password:</label>
+            <div class="col-sm-5">
+                <input type="password" class="form-control custom-input" id="Password" name="Password" required>
+            </div>
+        </div>
+
+        <div class="form-group row mb-3">
+            <label for="Role" class="col-sm-2 col-form-label">Role:</label>
+            <div class="col-sm-5">
+                <select class="form-control custom-input" id="Role" name="Role" required>
+                    <option value="Doctor">Doctor</option>
+                    <option value="Receptionist">Receptionist</option>
+                    <option value="Patient">Patient</option>
+                    <option value="Nurse">Nurse</option>
+                </select>
+            </div>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Add User</button>
+    </form>
+</div>
+
+<style>
+    input[type="checkbox"] {
+        position: relative;
+        width: 40px;
+        height: 20px;
+        -webkit-appearance: none;
+        appearance: none;
+        background: orange;
+        outline: none;
+        border-radius: 0.85rem;
+        cursor: pointer;
+        box-shadow: inset 0 0 5px rgb(0 0 0 / 50%);
+    }
+
+        input[type="checkbox"]::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: 0.5s;
+        }
+
+        input[type="checkbox"]:checked::before {
+            transform: translateX(100%);
+            background: #fff;
+        }
+
+        input[type="checkbox"]:checked {
+            background: #00ed64;
+        }
+
+    .sliding-checkbox {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .custom-input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px rgba(0, 0, 255, 0.2);
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+        .custom-input:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+</style>

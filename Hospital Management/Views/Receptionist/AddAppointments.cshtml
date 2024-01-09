@@ -1,0 +1,54 @@
+﻿<h1 class="text-center mb-5">Add Appointment</h1>
+<div class="ml-4">
+    <form asp-controller="Receptionist" asp-action="AppointmentAdded" method="post">
+        <div class="form-group row mb-3">
+            <label for="DoctorId" class="col-sm-2 col-form-label">Doctor:</label>
+            <div class="col-sm-5">
+                @if (ViewBag.Doctors != null && ViewBag.Doctors.Count > 0)
+                {
+                    <select class="form-control custom-input" id="DoctorId" name="DoctorId" required>
+                        @foreach (var doctor in ViewBag.Doctors)
+                        {
+                            <option value="@doctor.DoctorId">@doctor.Name</option>
+                        }
+                    </select>
+                }
+                else
+                {
+                    <span class="text-danger">No doctors available</span>
+                }
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="PatientId" class="col-sm-2 col-form-label">Patient:</label>
+            <div class="col-sm-5">
+                @if (ViewBag.Patients != null && ViewBag.Patients.Count > 0)
+                {
+                    <select class="form-control custom-input" id="PatientId" name="PatientId" required>
+                        @foreach (var patient in ViewBag.Patients)
+                        {
+                            <option value="@patient.PatientId">@patient.Name</option>
+                        }
+                    </select>
+                }
+                else
+                {
+                    <span class="text-danger">No patients available</span>
+                }
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="AppointmentDateTime" class="col-sm-2 col-form-label">Appointment Date and Time:</label>
+            <div class="col-sm-5">
+                <input type="datetime-local" class="form-control custom-input" id="AppointmentDateTime" name="AppointmentDateTime" required>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="Purpose" class="col-sm-2 col-form-label">Purpose:</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control custom-input" id="Purpose" name="Purpose" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Appointment</button>
+    </form>
+</div>

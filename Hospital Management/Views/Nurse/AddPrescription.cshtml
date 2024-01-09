@@ -1,0 +1,60 @@
+﻿<h1 class="text-center mb-5">Add Appointment</h1>
+<div class="ml-4">
+    <form asp-controller="Nurse" asp-action="PrescriptionAdded" method="post">
+        <div class="form-group row mb-3">
+            <label for="DoctorId" class="col-sm-2 col-form-label">Doctor:</label>
+            <div class="col-sm-5">
+                @if (ViewBag.Doctors != null && ViewBag.Doctors.Count > 0)
+                {
+                    <select class="form-control custom-input" id="DoctorId" name="DoctorId" required>
+                        @foreach (var doctor in ViewBag.Doctors)
+                        {
+                            <option value="@doctor.DoctorId">@doctor.Name</option>
+                        }
+                    </select>
+                }
+                else
+                {
+                    <span class="text-danger">No doctors available</span>
+                }
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="PatientId" class="col-sm-2 col-form-label">Patient:</label>
+            <div class="col-sm-5">
+                @if (ViewBag.Patients != null && ViewBag.Patients.Count > 0)
+                {
+                    <select class="form-control custom-input" id="PatientId" name="PatientId" required>
+                        @foreach (var patient in ViewBag.Patients)
+                        {
+                            <option value="@patient.PatientId">@patient.Name</option>
+                        }
+                    </select>
+                }
+                else
+                {
+                    <span class="text-danger">No patients available</span>
+                }
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="DatePrescribed" class="col-sm-2 col-form-label">Date Prescribed:</label>
+            <div class="col-sm-5">
+                <input type="datetime-local" class="form-control custom-input" id="DatePrescribed" name="DatePrescribed" required>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="Medications" class="col-sm-2 col-form-label">Medications:</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control custom-input" id="Medications" name="Medications" required>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="DosageInstructions" class="col-sm-2 col-form-label">Dosage Instructions:</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control custom-input" id="DosageInstructions" name="DosageInstructions" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Appointment</button>
+    </form>
+</div>

@@ -23,10 +23,10 @@ namespace Hospital_Management.Controllers
             ViewData["Authorized"] = "Patient";
             return View();
         }
-        public async Task<IActionResult> ViewAppointments()
+        public IActionResult ViewAppointments()
         {
             int? ID = HttpContext.Session.GetInt32("PatientId");
-            var patient = await managementDataContextClass.tbAppointment.Where(u => u.PatientId == ID).ToListAsync();
+            var patient = managementDataContextClass.tbAppointment.Where(u => u.PatientId == ID).ToList();
             ViewData["Authorized"] = "Patient";
             return View(patient);
         }
@@ -37,10 +37,10 @@ namespace Hospital_Management.Controllers
             ViewData["Authorized"] = "Patient";
             return View(patient);
         }
-        public async Task<IActionResult> ViewDetail()
+        public IActionResult ViewDetail()
         {
             int? ID = HttpContext.Session.GetInt32("PatientId");
-            var patient = await managementDataContextClass.tbPatient.FirstOrDefaultAsync(u => u.PatientId == ID);
+            var patient = managementDataContextClass.tbPatient.FirstOrDefault(u => u.PatientId == ID);
             ViewData["Authorized"] = "Patient";
             return View(patient);
         }
